@@ -1,13 +1,18 @@
-var commands = {
-    clearSet: function(selector, data){
+var generalCommands = {
+    clearSet: function (selector, data) {
         this.clearValue(selector)
         this.setValue(selector, data)
         return this
     }
 }
+var pageCommands = {
+    loginGoogle: function (credentials) {
+
+    }
+}
 module.exports = {
     url: 'https://www.pinterest.com/',
-    commands: [commands],
+    commands: [generalCommands, pageCommands],
     elements: {
         //pinterest login page
         googleBtn: 'button.GoogleConnectButton',
@@ -15,14 +20,11 @@ module.exports = {
         emailInput: 'input[type=email]',
         passInput: 'input[type=password]',
         //pinterest homepage
-        mainPage:'.appContent',
+        mainPage: '.appContent',
         header: 'h5',
-        searchBtn: {
-            selector: '//input[@type="text"]',
-            locateStrategy: 'xpath'
-        },
-        selectPicture: {
-            selector: '(//div[@class="MIw QLY Rym ojN p6V zI7 iyn Hsu"])[6]',
+        searchBtn: 'input[type=text]',
+        firstPost: {
+            selector: '(//*[@data-grid-item="true"])[1]',
             locateStrategy: 'xpath'
         },
         saveButton: {
@@ -37,13 +39,10 @@ module.exports = {
             selector: '//input[@class="wyq iyn Hsu aZc tBJ dyH iFc SMy yTZ L4E edc pBj qJc fgH"]',
             locateStrategy: 'xpath'
         },
-        submitBoardBtn: {
-            selector: '//button[@class="RCK Hsu mix Vxj aZc GmH adn Il7 Jrn hNT iyn BG7 NTm KhY"]',
-            locateStrategy: 'xpath'
-        },
+        submitBoardBtn: '[type=submit]',
         controlPannel: {
-                selector: '//div[@data-test-id= "button-container"]',
-                locateStrategy: 'xpath'
+            selector: '//div[@data-test-id= "button-container"]',
+            locateStrategy: 'xpath'
         },
         profilePannel: {
             //selector: '(//*[@data-test-id="button-container"])/*[3]',
@@ -60,6 +59,32 @@ module.exports = {
         },
         boardEditButton: 'button[aria-label="Edit board"]',
         boardDeleteButton: '[data-test-id="deleteBoardButton"]',
-        boardConfirmDelete: '[data-test-id="confirmBoardDelete"]'
+        boardConfirmDelete: '[data-test-id="confirmBoardDelete"]',
+        firstFollowButton: {
+            selector: '(//*[text()="Follow"])[1]',
+            locateStrategy: 'xpath'
+        },
+        dotButton: {
+            selector: '//button[@aria-label="Settings and more options related to your account"]',
+            locateStrategy: 'xpath'
+        },
+        editSettings: {
+            selector: '(//div[@class="C9q Fje Jea Shl jzS ujU zI7 iyn Hsu"])[2]',
+            locateStrategy: 'xpath'
+        },
+        firstNameInput: {
+            selector: '//input[@name="first_name"]',
+            locateStrategy: 'xpath'
+        },
+        lastNameInput: {
+            selector: '//input[@name="last_name"]',
+            locateStrategy: 'xpath'
+        },
+        locationInput: {
+            selector: '//input[@name="location"]',
+            locateStrategy: 'xpath'
+        },
+        settingsDoneButton: '[data-test-id="done-button"]',
+        bioHeader: '.BrioProfileHeaderWrapper'
     }
 }
