@@ -1,18 +1,13 @@
-var generalCommands = {
+var commands = {
     clearSet: function (selector, data) {
         this.clearValue(selector)
         this.setValue(selector, data)
         return this
     }
 }
-var pageCommands = {
-    loginGoogle: function (credentials) {
-
-    }
-}
 module.exports = {
     url: 'https://www.pinterest.com/',
-    commands: [generalCommands, pageCommands],
+    commands: [commands],
     elements: {
         //pinterest login page
         googleBtn: 'button.GoogleConnectButton',
@@ -45,7 +40,6 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         profilePannel: {
-            //selector: '(//*[@data-test-id="button-container"])/*[3]',
             selector: '(//div[@class="Jea gjz hA- hs0 mQ8 wYR zI7 iyn Hsu"])[3]',
             locateStrategy: 'xpath'
         },
@@ -85,6 +79,29 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         settingsDoneButton: '[data-test-id="done-button"]',
-        bioHeader: '.BrioProfileHeaderWrapper'
+        bioHeader: '.BrioProfileHeaderWrapper',
+        searchFirstSuggestion: '#SuggestionGroup-Option-0-0',
+        //messaging
+        messageMenuBtn: {
+            selector: '//button[@aria-label="Messages"]',
+            locateStrategy: 'xpath'
+        },
+        composeMessageBtn: {
+            selector: '(//button[@aria-label="compose new message"])[1]',
+            locateStrategy: 'xpath'
+        },
+        messageToField: {
+            selector: '//input[@placeholder="Enter name or email"]',
+            locateStrategy: 'xpath'
+        },
+        messageRecipient: {
+            selector: '(//a[@role="button"])[1]',
+            locateStrategy: 'xpath'
+        },
+        messageField: {
+            selector: '//textarea[@placeholder="Add a message"]',
+            locateStrategy: 'xpath'
+        },
+        sendMessageBtn: '[aria-label="Send message to conversation"]'
     }
 }
