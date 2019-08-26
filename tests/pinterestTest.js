@@ -1,10 +1,10 @@
-var loginGoogle = function (credentials) {
+var loginGoogle = function(credentials){
     //click 'Login with Google' button and switch to the new window
     console.log('***click \'Login with Google\' button and switch to the new window***')
     page.waitForElementVisible('@googleBtn')
         .click('@googleBtn')
         .pause(500)
-        .api.windowHandles(function (result) {
+        .api.windowHandles(function(result){
             page.switchWindow(result.value[1])
         })
     //wait for new email input to be visible, then input email and press enter
@@ -17,7 +17,7 @@ var loginGoogle = function (credentials) {
     page.pause(2000)
         .setValue('@passInput', credentials.password)
         .api.keys(page.api.Keys.ENTER)
-    page.api.windowHandles(function (result) {
+    page.api.windowHandles(function(result){
         page.switchWindow(result.value[0])
     })
     //after switching back to original window, wait for main page to load and then run assertion
@@ -25,7 +25,7 @@ var loginGoogle = function (credentials) {
     page.waitForElementVisible('@mainPage', 10000)
         .expect.element('@profilePannel').text.to.contain('Barbara')
 }
-var changeInfo = function (data) {
+var changeInfo = function(data){
     //click menu button, click edit settings, close menu, edit first/last name, and save changes then verify
     page.click('@dotButton')
         .click('@editSettings')
@@ -90,7 +90,7 @@ module.exports = {
             .click('@boardConfirmDelete')
             .pause(1000)
     },
-    'Change Name Test': function (){
+    'Change Name Test': function(){
         var newInfo = {
             firstName: 'Melissa',
             lastName: 'McCarthy'
