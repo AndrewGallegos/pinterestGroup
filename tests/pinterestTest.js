@@ -22,14 +22,14 @@ var loginGoogle = function(credentials){
     })
     //after switching back to original window, wait for main page to load and then run assertion
     console.log('***after switching back to original window, wait for main page to load and then run assertion***')
-    page.waitForElementVisible('@mainPage', 10000)
+    page.waitForElementVisible('@mainPage', 30000)
         .expect.element('@profilePannel').text.to.contain('Barbara')
 }
 var changeInfo = function(data){
     //click menu button, click edit settings, close menu, edit first/last name, and save changes then verify
     page.click('@dotButton')
         .click('@editSettings')
-        .waitForElementVisible('@firstNameInput')
+        .waitForElementVisible('@firstNameInput', 10000)
         .click('@dotButton')
         .clearSet('@firstNameInput', data.firstName)
         .clearSet('@lastNameInput', data.lastName)
@@ -82,7 +82,7 @@ module.exports = {
         console.log('***select the new board, click the edit button, delete, and confirm***')
         page.click('@newBoardSelect')
             .pause(500)
-            .waitForElementVisible('@boardEditButton')
+            .waitForElementVisible('@boardEditButton', 10000)
             .click('@boardEditButton')
             .pause(500)
             .click('@boardDeleteButton')
@@ -108,6 +108,8 @@ module.exports = {
             recipient: 'QA TOWNBOI',
             message: 'Testing 1..2..3..'
         }
+        //click message button, new message, type in recipient, message, and then send
+        console.log('***Sending message***')
         page.click('@messageMenuBtn')
             .pause(500)
             .click('@composeMessageBtn')
