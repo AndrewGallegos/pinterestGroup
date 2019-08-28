@@ -23,7 +23,7 @@ var loginGoogle = function(credentials){
     //after switching back to original window, wait for main page to load and then run assertion
     console.log('***after switching back to original window, wait for main page to load and then run assertion***')
     page.waitForElementVisible('@mainPage', 30000)
-        .expect.element('@profilePannel').text.to.contain('Barbara')
+        .expect.element('@profileButton').text.to.contain('Barbara')
 }
 var changeInfo = function(data){
     //click menu button, click edit settings, close menu, edit first/last name, and save changes then verify
@@ -35,7 +35,7 @@ var changeInfo = function(data){
         .clearSet('@lastNameInput', data.lastName)
         .click('@settingsDoneButton')
         .pause(4000)
-        .click('@profilePannel')
+        .click('@profileButton')
         .expect.element('@bioHeader').text.to.contain(data.firstName + " " + data.lastName)
 }
 var page;
@@ -72,7 +72,7 @@ module.exports = {
             .click('@submitBoardBtn')
             .waitForElementVisible('@controlPannel')
             .pause(7000)
-            .click('@profilePannel')
+            .click('@profileButton')
             .waitForElementVisible('@boardButton')
             .click('@boardButton')
             .waitForElementVisible('@newBoardSelect')

@@ -26,8 +26,12 @@ module.exports = {
             selector: '(//div[@class="Jea gjz zI7 iyn Hsu"])[3]',
             locateStrategy: 'xpath'
         },
+        boardDropDown: {
+            selector: '//div[@data-test-id="boardSelectionDropdown"]',
+            locateStrategy: 'xpath'
+        },
         createBoard: {
-            selector: '//*[@data-test-id="createBoardButton"]',
+            selector: '(//*[@data-test-id="create-board"])[1]',
             locateStrategy: 'xpath'
         },
         boardName: {
@@ -39,7 +43,7 @@ module.exports = {
             selector: '//div[@data-test-id= "button-container"]',
             locateStrategy: 'xpath'
         },
-        profilePannel: {
+        profileButton: {
             selector: '(//div[@class="Jea gjz hA- hs0 mQ8 wYR zI7 iyn Hsu"])[3]',
             locateStrategy: 'xpath'
         },
